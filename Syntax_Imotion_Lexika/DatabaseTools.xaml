@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="Syntax_Imotion_Lexika.DatabaseTools"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Syntax_Imotion_Lexika"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="866" Width="505">
+
+    <Grid>
+        <Button x:Name ="Check_Database" Content="Prüfe Datenbank" Margin="70,481,0,0" VerticalAlignment="Top" Height="100" Width="350" Click="Check_Database_Click"/>
+        <TextBlock x:Name="Connection_State" HorizontalAlignment="Left" Margin="70,628,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="350" Height="50"/>
+        <Button x:Name="Create_Databse" Content="Erstelle Datenbank" Margin="70,363,0,0" VerticalAlignment="Top" Height="100" Width="350" Click="Create_Database_Click"/>
+        <!--<Button x:Name ="Check_SQL_Service" Content="Prüfe SQL-Dienst" Margin="70,333,0,0" VerticalAlignment="Top" Width="350" Height="100" Click="Check_SQL_Service_Click"/>-->
+
+    </Grid>
+</Page>

@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="Syntax_Imotion_Lexika.ClientContact"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Syntax_Imotion_Lexika"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="622" Width="848">
+
+    <Grid Margin="0,0,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="717*"/>
+            <RowDefinition Height="107*"/>
+        </Grid.RowDefinitions>
+        <TextBox Header ="ID" x:Name="Client_ID" HorizontalAlignment="Left" Height="63" Margin="41,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="163"/>
+        <TextBox Header ="Name" x:Name="Client_Name" HorizontalAlignment="Left" Height="88" Margin="41,176,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="295"/>
+        <TextBox Header ="Grund des Anrufs" x:Name="Client_Reason" HorizontalAlignment="Left" Height="151" Margin="41,311,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="705"/>
+        <Button Content="Speichern" Height="50" Margin="41,9,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click" Grid.Row="1"/>
+        <Button x:Name="Clr_Btn" Content="Clear" Margin="452,9,0,0" Grid.Row="1" VerticalAlignment="Top" Height="50" Width="150" Click="Clr_Btn_Click"/>
+        <Button x:Name="Btn_MainMenu" Content="Hauptmenü" Height="50" Margin="650,9,0,0" VerticalAlignment="Top" Width="150" Click="Btn_MainMenu_Click" Grid.Row="1"/>
+        <TextBlock x:Name="Result_Block" HorizontalAlignment="Left" Height="28" Margin="41,479,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="298"/>
+        <!--<CalendarDatePicker x:Name="Calender_Choose" Margin="498,87,0,0" VerticalAlignment="Top" Height="42" Width="158" Tapped="CalendarDatePicker_Tapped" />-->
+        <!--<CheckBox Content="Anderes Datum" Margin="249,88,0,0" VerticalAlignment="Top" Width="170" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>-->
+
+
+    </Grid>
+</Page>
