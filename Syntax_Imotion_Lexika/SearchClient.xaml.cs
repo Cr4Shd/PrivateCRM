@@ -81,15 +81,24 @@ namespace Syntax_Imotion_Lexika
 
         private void Call_List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             try
             {
+                
                 var item = ClientListView.SelectedItem;
                 var cliento = (DBItems.Client)item;
-                ////WIP! :D
-                //Console.WriteLine("hold");
-                //string test = $"Kunde : {cliento.Name}\n ID : {cliento.ID}\n Datum des letzten Anrufs : {cliento.Date}\n Grund des Anrufs : {cliento.ReasonForCall}";
-                //MessageDialog msgDialog = new MessageDialog(test);
-                //msgDialog.ShowAsync();
+                if (cliento != null)
+                {
+                    ////WIP! :D
+                    Console.WriteLine("hold");
+                    string recieveInformation = $"Kunde : {cliento.Name}\n ID : {cliento.ID}\n Datum des letzten Anrufs : {cliento.Date}\n Grund des Anrufs : {cliento.ReasonForCall}";
+                    MessageDialog msgDialog = new MessageDialog(recieveInformation);
+                    msgDialog.ShowAsync();
+                }
+                else
+                {
+                    return;
+                }
             }
             catch(Exception)
             {
@@ -97,9 +106,14 @@ namespace Syntax_Imotion_Lexika
             }
         }
 
+        // Ok hier bekomme ich durch die EventArgs den Namen mit, bzw die ID, und damit kann ich theoretisch dann nach dem Client suchen.
+        // Ich bekomm aber dadurch noch nicht die uid mit, welche ich theoretisch bräuchte um nach dem spezifischen call zu suchen .
         private void ClientListView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            var item = e.ClickedItem as DBItems.Client;
+            Frame.Navigate(typeof(ClientCallDetails), item);
             
+            var x = e;
         }
     }
 }

@@ -10,10 +10,10 @@ using MySql.Data.MySqlClient;
 
 namespace Syntax_Imotion_Lexika.DBUtils
 {
-    
+
     static class DBPasstrough
     {
-        
+
         #region WriteClientDB
         /// <summary>
         /// Wird zum Schreiben von Kundendaten in die lokale Datenbank verwendet.
@@ -26,21 +26,22 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 var connectString = DBConfigs.stringBuilder;
                 var connection = new MySqlConnection(connectString.ConnectionString);
 
-                string dataString = $"INSERT INTO kontakte (ID, Name, Datum, Anliegen) VALUES ('{client.ID}', '{client.Name}', '{client.Date.ToString("yyyy-MM-dd HH:mm:ss")}','{client.ReasonForCall}')";
+                string dataString = $"INSERT INTO kontakte (ID, Name, Datum, Anliegen, AnrufID, Erledigt) VALUES " +
+                    $"('{client.ID}', '{client.Name}', '{client.Date.ToString("yyyy-MM-dd HH:mm:ss")}','{client.ReasonForCall}','{client.Unq_Call_ID}','{client.Case_Closed}')";
                 Console.WriteLine(dataString);
                 MySqlCommand command = new MySqlCommand(dataString, connection);
 
                 connection.Open();
                 var rowsAff = command.ExecuteNonQuery();
-                Console.WriteLine("Es wurden +" +rowsAff+ " beschrieben.");
+                Console.WriteLine("Es wurden +" + rowsAff + " beschrieben.");
                 connection.Close();
                 return true;
             }
-            catch(MySql.Data.MySqlClient.MySqlException e)
+            catch (MySql.Data.MySqlClient.MySqlException e)
             {
-                Console.WriteLine("Stacktrace ist : " +e.StackTrace.ToString());
-                Console.WriteLine("Fehlercode ist : " +e.Code);
-                Console.WriteLine("Fehlername ist : " +e.Message);
+                Console.WriteLine("Stacktrace ist : " + e.StackTrace.ToString());
+                Console.WriteLine("Fehlercode ist : " + e.Code);
+                Console.WriteLine("Fehlername ist : " + e.Message);
                 return false;
             }
         }
@@ -58,7 +59,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 var connectionString = DBConfigs.stringBuilder;
                 var connection = new MySqlConnection(connectionString.ConnectionString);
 
-                string dataString = $"INSERT INTO problems(Problemo, Solution, Autor) VALUES('{problemCase.Description}', '{problemCase.Solution}', '{problemCase.Author}')";
+                string dataString = $"INSERT INTO problems(Problemo, Solution, Autor, KeyWord, Code) VALUES('{problemCase.Description.ToLower()}', '{problemCase.Solution}', '{problemCase.Author}', '{problemCase.IdWord.ToLower()}', '{problemCase.Code}')";
                 Console.WriteLine(dataString);
                 MySqlCommand command = new MySqlCommand(dataString, connection);
 
@@ -103,17 +104,21 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
 
 
-
                 while (reader.Read())
                 {
                     var idX = reader.GetString(0);
                     var nameX = reader.GetString(1);
                     DateTime dateX = reader.GetDateTime(2);
                     var reasonX = reader.GetString(3);
+                    var test = reader.IsDBNull(4);
+                    //var iDX = reader.GetString(4);
 
-                    clients.Add(new DBItems.Client(idX, nameX, dateX, reasonX));
+                    //var callInternIdX = reader.GetString(4);
+                    //var IsSolved = reader.GetInt32(5);
+
+                    clients.Add(new DBItems.Client(idX, nameX, dateX, reasonX /*callInternIdX, IsSolved*/));
                 }
-                
+
                 connection.Close();
 
                 // Hier muss ich ansetzen für die FilterName und FilterID
@@ -155,10 +160,10 @@ namespace Syntax_Imotion_Lexika.DBUtils
                     return new DBItems.Client("CLIENT_NOT_FOUND");
                 }
                 // Hier Ansetzen : Innerhalb der UI sollte man ein ListVIewItem einbauen welches die letzten 3 Anrufe zeigt.
-                var resultClient = resultClientList[resultClientList.Count -1];
+                var resultClient = resultClientList[resultClientList.Count - 1];
                 return resultClient;
             }
-            catch(MySqlException e)
+            catch (MySqlException e)
             {
                 Console.WriteLine("Stacktrace ist : " + e.StackTrace.ToString());
                 Console.WriteLine("Fehlercode ist : " + e.Code);
@@ -184,21 +189,17 @@ namespace Syntax_Imotion_Lexika.DBUtils
             MySqlDataReader reader;
             reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
 
-
-            
             while (reader.Read())
             {
                 var idX = reader.GetString(0);
                 var nameX = reader.GetString(1);
                 DateTime dateX = reader.GetDateTime(2);
                 var reasonX = reader.GetString(3);
-
+                //var uIdX = reader.GetString(4);
                 clients.Add(new DBItems.Client(idX, nameX, dateX, reasonX));
             }
 
             connection.Close();
-
-
 
             // WIP
             if (!id.Equals(String.Empty))
@@ -222,8 +223,9 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 select item;
                 clientList = resultX.ToList();
             }
+
             // WIP
-            //var result =
+            // var result =
             //    from item in clients
             //    where item.ID.Equals(id)
             //    select item;
@@ -232,14 +234,130 @@ namespace Syntax_Imotion_Lexika.DBUtils
             return resultClientList;
         }
         #endregion // Funktion ist noch WIP
+
+        #region ReadProblemDB
+        // Diese Funktion soll eine Liste aller Probleme ausgeben, nach welcher mit einem bestimmten String gesucht wird. Ich denke dafür kann ich am besten RegEx benutzen.
+        public static DBItems.ProblemCase ReadProblemsDB(string prob)
+        {
+            DBObjectParser parser = new DBObjectParser();
+            try
+            {
+                List<DBItems.ProblemCase> cases = new List<DBItems.ProblemCase>();
+                List<DBItems.ProblemCase> casesList = new List<DBItems.ProblemCase>();
+                string dataReturn = string.Empty;
+                var connectionString = DBConfigs.stringBuilder;
+                var connection = new MySqlConnection(connectionString.ConnectionString);
+
+                string dataString = "SELECT * FROM problems;";
+                MySqlCommand command = new MySqlCommand(dataString, connection);
+
+                connection.Open();
+                MySqlDataReader reader;
+                reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
+
+
+                while (reader.Read())
+                {
+                    var idword = reader.GetString(3);
+                    var desrc = reader.GetString(0);
+                    var solut = reader.GetString(1);
+                    var auth = reader.GetString(2);
+
+
+
+                    cases.Add(new DBItems.ProblemCase(idword, desrc, solut, auth));
+                }
+
+                connection.Close();
+
+                var bufferList =
+                    from item in cases
+                    where item.Description.Contains(prob)
+                    select item;
+
+                casesList = bufferList.ToList();
+
+                if (casesList.Count < 1)
+                {
+                    return new DBItems.ProblemCase("PROBLEM_NOT_FOUND");
+                }
+
+                return casesList[0];
+
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Stacktrace ist : " + e.StackTrace.ToString());
+                Console.WriteLine("Fehlercode ist : " + e.Code);
+                Console.WriteLine("Fehlername ist : " + e.Message);
+                return null;
+            }
+
+
+        }
+        #endregion
+
+        #region ReadProblemList
+        public static List<DBItems.ProblemCase> ReadDBProblemList(string prob)
+        {
+            try
+            {
+                List<DBItems.ProblemCase> cases = new List<DBItems.ProblemCase>();
+                List<DBItems.ProblemCase> casesList = new List<DBItems.ProblemCase>();
+                string dataReturn = string.Empty;
+                var connectionString = DBConfigs.stringBuilder;
+                var connection = new MySqlConnection(connectionString.ConnectionString);
+
+                string dataString = "SELECT * FROM problems;";
+                MySqlCommand command = new MySqlCommand(dataString, connection);
+
+                connection.Open();
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    var idword = reader.GetString(3);
+                    var desrc = reader.GetString(0);
+                    var solut = reader.GetString(1);
+                    var auth = reader.GetString(2);
+
+
+
+                    cases.Add(new DBItems.ProblemCase(idword, desrc, solut, auth));
+                }
+
+                connection.Close();
+
+                var bufferList =
+                    from item in cases
+                    where item.IdWord.Contains(prob)
+                    select item;
+
+                casesList = bufferList.ToList();
+
+                
+                return casesList;
+
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Stacktrace ist : " + e.StackTrace.ToString());
+                Console.WriteLine("Fehlercode ist : " + e.Code);
+                Console.WriteLine("Fehlername ist : " + e.Message);
+                return null;
+            }
+        }
+        #endregion
+        //private void FilterByName(Tuple<int, string> value)
+        //{
+
+        //}
+        //private void FilterById(Tuple<int, string> value)
+        //{
+
+        //}
+
     }
-    //private void FilterByName(Tuple<int, string> value)
-    //{
-
-    //}
-    //private void FilterById(Tuple<int, string> value)
-    //{
-
-    //}
-    
 }

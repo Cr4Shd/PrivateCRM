@@ -10,11 +10,17 @@
 
     <Grid>
         <TextBox Header ="Titel" x:Name="Problem_Title" HorizontalAlignment="Left" Margin="56,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="73" Width="553"/>
-        <TextBox Header ="Autor" x:Name="Problem_Autor" HorizontalAlignment="Left" Height="73" Margin="644,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="526"/>
+        <TextBox x:Name="code_bx" Header="Fehlercode" HorizontalAlignment="Left" Margin="668,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.379,-0.281" Height="73" Width="344"/>
+        <TextBox Header ="Autor" x:Name="Problem_Autor" HorizontalAlignment="Left" Height="73" Margin="1068,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="267"/>
         <TextBox Header ="Lösungen" x:Name="Problem_Description" HorizontalAlignment="Left" Height="456" Margin="56,174,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="1312"/>
         <Button x:Name="Btn_Save" Content="Speichern" Margin="56,744,0,0" VerticalAlignment="Top" Height="101" Width="446" Click="Btn_Save_Click"/>
         <Button x:Name="Return_MainMenu" Content="Hauptmenü" Margin="56,884,0,0" VerticalAlignment="Top" Height="46" Width="446" Click="Return_MainMenu_Click"/>
-        <TextBlock x:Name="Result_Block" HorizontalAlignment="Left" Height="51" Margin="610,744,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="419"/>
+        <TextBlock x:Name="Result_Block" HorizontalAlignment="Left" Height="51" Margin="531,744,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="303"/>
+        
+        <RadioButton x:Name="knktr_rd_btn" Content="Konnektor" Margin="914,753,0,0" VerticalAlignment="Top" Checked="knktr_rd_btn_Checked"/>
+        <RadioButton x:Name="term_rd_btn" Content="Terminal" Margin="914,790,0,0" VerticalAlignment="Top" Checked="term_rd_btn_Checked"/>
+        <RadioButton x:Name="uncat_rd_btn" Content="Ohne Kategorie" Margin="914,832,0,0" VerticalAlignment="Top" Checked="uncat_rd_btn_Checked"/>
+
 
     </Grid>
 </Page>

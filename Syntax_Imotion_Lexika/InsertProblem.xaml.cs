@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Syntax_Imotion_Lexika.DBItems;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 // Die Elementvorlage "Leere Seite" wird unter https://go.microsoft.com/fwlink/?LinkId=234238 dokumentiert.
 
@@ -28,7 +29,7 @@ namespace Syntax_Imotion_Lexika
         {
             
             this.InitializeComponent();
-            
+            DisableSafeButton();
             
             
         }
@@ -38,18 +39,38 @@ namespace Syntax_Imotion_Lexika
             var prob_title_text = Problem_Title.Text;
             var solution_description_text = Problem_Description.Text;
             var prob_autor = Problem_Autor.Text;
-            
-            ProblemCase prob_case = new ProblemCase(prob_title_text, solution_description_text, prob_autor);
-            var result = DBUtils.DBPasstrough.WriteProblemDB(prob_case);
+            var keyword = CheckRdButtn();
+            var code = code_bx.Text;
 
-            if (result)
+            if (code.Equals(String.Empty))
             {
-                Result_Block.Text = "Kunde wurde erfolgreich gespeichert!";
-                ClearBoxes();
+                ProblemCase prob_case = new ProblemCase(keyword, prob_title_text, solution_description_text, prob_autor);
+                var result = DBUtils.DBPasstrough.WriteProblemDB(prob_case);
+
+                if (result)
+                {
+                    Result_Block.Text = "Problem wurde erfolgreich gespeichert!";
+                    ClearBoxes();
+                }
+                else
+                {
+                    Result_Block.Text = "Problem wurde nicht gespeichert!";
+                }
             }
             else
             {
-                Result_Block.Text = "Kunde wurde nicht gespeichert!";
+                ProblemCase prob_case = new ProblemCase(keyword, prob_title_text, solution_description_text, prob_autor, code);
+                var result = DBUtils.DBPasstrough.WriteProblemDB(prob_case);
+
+                if (result)
+                {
+                    Result_Block.Text = "Problem wurde erfolgreich gespeichert!";
+                    ClearBoxes();
+                }
+                else
+                {
+                    Result_Block.Text = "Problem wurde nicht gespeichert!";
+                }
             }
         }
 
@@ -62,6 +83,49 @@ namespace Syntax_Imotion_Lexika
             Problem_Title.Text = String.Empty;
             Problem_Description.Text = String.Empty;
             Problem_Autor.Text = String.Empty;
+            knktr_rd_btn.IsChecked = false;
+            term_rd_btn.IsChecked = false;
+            Btn_Save.IsEnabled = false;
+            code_bx.Text = String.Empty;
+        }
+        private string CheckRdButtn()
+        {
+            if (term_rd_btn.IsChecked == true)
+            {
+                return "kartenterminal";
+            }
+            if (knktr_rd_btn.IsChecked == true)
+            {
+                return "konnektor";
+            }
+            if (uncat_rd_btn.IsEnabled == true)
+            {
+                return "nocat";
+            }
+            return "NoDev";
+        }
+
+        private void knktr_rd_btn_Checked(object sender, RoutedEventArgs e)
+        {
+            EnableSafeButton();
+        }
+
+        private void term_rd_btn_Checked(object sender, RoutedEventArgs e)
+        {
+            EnableSafeButton();
+        }
+        private void EnableSafeButton()
+        {
+            Btn_Save.IsEnabled = true;
+        }
+        private void DisableSafeButton()
+        {
+            Btn_Save.IsEnabled = false;
+        }
+
+        private void uncat_rd_btn_Checked(object sender, RoutedEventArgs e)
+        {
+            EnableSafeButton();
         }
     }
 }

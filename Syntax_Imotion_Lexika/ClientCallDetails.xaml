@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="Syntax_Imotion_Lexika.ClientCallDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Syntax_Imotion_Lexika"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="597" Height="638">
+
+    <Grid Margin="0,26,111,25">
+        <TextBlock x:Name="Client_Name" HorizontalAlignment="Left" Margin="71,154,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="55" Width="400"/>
+        <TextBlock x:Name="Client_ID" HorizontalAlignment="Left" Margin="71,218,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="55" Width="400"/>
+        <TextBlock HorizontalAlignment="Left" Margin="71,286,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="55" Width="400"/>
+        <Button Content="Zurück" Margin="351,443,0,0" VerticalAlignment="Top" Height="50" Width="90" Click="Button_Click"/>
+
+
+    </Grid>
+</Page>

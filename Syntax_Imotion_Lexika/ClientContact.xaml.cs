@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 
 // Die Elementvorlage "Leere Seite" wird unter https://go.microsoft.com/fwlink/?LinkId=234238 dokumentiert.
 
@@ -44,7 +46,7 @@ namespace Syntax_Imotion_Lexika
                 {
 
                     Result_Block.Text = "Kunde wurde erfolgreich gespeichert!";
-
+                    
                 }
                 else
                 {
@@ -72,6 +74,7 @@ namespace Syntax_Imotion_Lexika
             Client_ID.Text = String.Empty;
             Client_Name.Text = String.Empty;
             Client_Reason.Text = String.Empty;
+            Result_Block.Text = String.Empty;
         }
 
         private void Clr_Btn_Click(object sender, RoutedEventArgs e)

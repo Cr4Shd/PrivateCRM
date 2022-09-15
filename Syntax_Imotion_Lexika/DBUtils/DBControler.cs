@@ -13,7 +13,6 @@ namespace Syntax_Imotion_Lexika.DBUtils
     
     static class DBControler
     {
-        
         public static bool CheckDataBase()
         {
             try
@@ -29,7 +28,6 @@ namespace Syntax_Imotion_Lexika.DBUtils
             catch (MySqlException)
             {
                 return false;
-                
             }
         }
         public static bool CreateDataBase()

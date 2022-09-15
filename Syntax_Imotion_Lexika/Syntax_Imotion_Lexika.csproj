@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClientCallDetails.xaml.cs">
+      <DependentUpon>ClientCallDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClientContact.xaml.cs">
       <DependentUpon>ClientContact.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchClient.xaml.cs">
       <DependentUpon>SearchClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search_Problem.xaml.cs">
+      <DependentUpon>Search_Problem.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
@@ -166,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ClientCallDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClientContact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +193,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SearchClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search_Problem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -48,7 +48,7 @@ namespace Syntax_Imotion_Lexika
         }
         private void Test_Event(object sedner, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(TestPage));
+            Frame.Navigate(typeof(Search_Problem));
         }
     }
 }

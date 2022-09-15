@@ -19,14 +19,14 @@
         <Button x:Name="Create_Call" Content="Anruf anlegen" Margin="329,612,0,0" VerticalAlignment="Top" Width="125" Click="Create_Call_Click"/>
         <Button x:Name="MainMenu_Btn" Content="Hauptmenü" Margin="490,612,0,0" VerticalAlignment="Top" Width="125" Click="MainMenu_Btn_Click"/>
         
-        <ListView x:Name ="ClientListView" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="672,0,0,0" Width="600" Height="300" ItemClick="ClientListView_ItemClick" SelectionChanged="Call_List_SelectionChanged" >
+        <ListView x:Name ="ClientListView" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="672,0,0,0" Width="600" Height="300" ItemClick="ClientListView_ItemClick" SelectionChanged="Call_List_SelectionChanged" IsItemClickEnabled="True" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock  Text="{Binding ID}" />
                         <TextBlock  Text="{Binding Name}" Margin="5,0,0,0" />
                         <TextBlock  Text="{Binding Date}" Margin="5,0,0,0" />
-                        <TextBlock  Text="{Binding ReasonForCall}"/>
+                        <!--<TextBlock  Text="{Binding Unq_Call_ID}" Margin="5,0,0,0"/>-->
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
