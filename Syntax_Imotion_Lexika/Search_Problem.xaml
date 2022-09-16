@@ -10,7 +10,7 @@
 
     <Grid>
 
-        <ListView x:Name ="ProblemListView" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="659,284,0,0" Width="600" Height="461"  IsItemClickEnabled="True" >
+        <ListView x:Name ="ProblemListView" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="713,0,0,0" Width="600" Height="581"  IsItemClickEnabled="True" ItemClick="ProblemListView_ItemClick" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -23,7 +23,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button  x:Name="Search_Client" Content="Suchen" Margin="124,750,0,0" VerticalAlignment="Top" Height="80" Width="220" Click="Button_Click"/>
-        <TextBox x:Name="Problem_TxtBx" Header="Schlüsselwort" HorizontalAlignment="Left" Margin="124,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="270"/>
+        <TextBox x:Name="Problem_TxtBx" Header="Schlüsselwort" HorizontalAlignment="Left" Margin="124,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="270"/>
         <!--<TextBox Header="Autor" HorizontalAlignment="Left" Margin="124,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="270"/>-->
         <Button  x:Name="Back_To_Main" Content="MainMenu" Margin="391,751,0,0" VerticalAlignment="Top" Height="80" Width="220" Click="Back_To_Main_Click"/>
         <TextBlock x:Name="Result_Block" HorizontalAlignment="Left" Margin="124,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="271"/>

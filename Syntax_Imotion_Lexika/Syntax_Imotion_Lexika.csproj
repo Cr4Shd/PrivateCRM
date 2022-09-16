@@ -140,6 +140,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Problem_Details.xaml.cs">
+      <DependentUpon>Problem_Details.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchClient.xaml.cs">
       <DependentUpon>SearchClient.xaml</DependentUpon>
@@ -191,6 +194,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Problem_Details.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchClient.xaml">
       <SubType>Designer</SubType>

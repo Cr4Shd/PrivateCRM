@@ -54,5 +54,11 @@ namespace Syntax_Imotion_Lexika
         {
             Frame.Navigate(typeof(MainPage));
         }
+
+        private void ProblemListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as DBItems.ProblemCase;
+            Frame.Navigate(typeof(Problem_Details), item);
+        }
     }
 }

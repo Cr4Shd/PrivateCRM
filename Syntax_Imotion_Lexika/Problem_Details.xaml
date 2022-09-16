@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="Syntax_Imotion_Lexika.Problem_Details"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Syntax_Imotion_Lexika"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="813">
+
+    <Grid HorizontalAlignment="Left" Width="803">
+        <TextBlock x:Name="Solution_Box" HorizontalAlignment="Left" Height="296" Margin="95,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="616"/>
+        
+        <TextBlock x:Name="Title_Box" HorizontalAlignment="Left" Margin="95,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="321"/>
+        <Button x:Name="Back_Btn" Content="Zurück" Margin="95,854,0,0" VerticalAlignment="Top" Width="154" Click="Back_Btn_Click"/>
+        <Button x:Name="MainMenu_Btn" Content="Hauptmenü" Margin="308,854,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.035,-0.72" Width="163" Click="MainMenu_Btn_Click"/>
+    </Grid>
+</Page>

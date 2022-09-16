@@ -51,7 +51,7 @@ namespace Syntax_Imotion_Lexika.DBItems
         /// <param name="idword"></param>
         public ProblemCase(string idword)
         {
-
+            IdWord = idword;
         }
     }
 }

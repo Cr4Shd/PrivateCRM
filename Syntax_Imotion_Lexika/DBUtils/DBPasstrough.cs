@@ -322,9 +322,6 @@ namespace Syntax_Imotion_Lexika.DBUtils
                     var desrc = reader.GetString(0);
                     var solut = reader.GetString(1);
                     var auth = reader.GetString(2);
-
-
-
                     cases.Add(new DBItems.ProblemCase(idword, desrc, solut, auth));
                 }
 
@@ -350,14 +347,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
             }
         }
         #endregion
-        //private void FilterByName(Tuple<int, string> value)
-        //{
-
-        //}
-        //private void FilterById(Tuple<int, string> value)
-        //{
-
-        //}
+        
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel.Channels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,6 +28,7 @@ namespace Syntax_Imotion_Lexika
             this.InitializeComponent();
         }
 
+        #region Buttons
         private void Create_Problem_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(InsertProblem));
@@ -48,7 +50,13 @@ namespace Syntax_Imotion_Lexika
         }
         private void Test_Event(object sedner, RoutedEventArgs e)
         {
+            
+        }
+
+        private void Search_Problem_Click(object sender, RoutedEventArgs e)
+        {
             Frame.Navigate(typeof(Search_Problem));
         }
+        #endregion
     }
 }

@@ -31,7 +31,6 @@ namespace Syntax_Imotion_Lexika.DBUtils
             if (t is System.String)
             {
                 return CheckValueString(t as string);
-                
             }
             //if (t is System.DateTime)
             //{
@@ -52,5 +51,9 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 return Tuple.Create(0, value as object);
             }
         }
+        //public Tuple<int, DateTime> CheckDateValue
+        //{
+        //    return null;
+        //}
     }
 }
