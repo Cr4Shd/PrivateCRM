@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using MySql.Data.MySqlClient;
-
-
+using Windows.Devices.PointOfService;
 
 namespace Syntax_Imotion_Lexika.DBUtils
 {
@@ -171,7 +170,9 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 return null;
             }
         }
+        #endregion
 
+        #region ReadClientLIst
         public static List<DBItems.Client> ReadClientListDB(string id, string name)
         {
             DBObjectParser parser = new DBObjectParser();
@@ -347,7 +348,45 @@ namespace Syntax_Imotion_Lexika.DBUtils
             }
         }
         #endregion
-        
+
+        #region WriteTicketDB
+
+        //public string Title { get; set; }
+        //public DateTime CreationTime { get; set; }
+        //public string TicketText { get; set; }
+        //public string Author { get; set; }
+        //public string ID { get; set; }
+
+        /// <summary>
+        /// Diese Methode wird verwendet um Tickets in die DB einzupflegen.
+        /// </summary>
+        /// <param name="ticket"></param>
+        /// <returns></returns>
+        public static bool WriteTicket(DBItems.Ticket ticket)
+        {
+            try
+            {
+                var connectionString = DBConfigs.stringBuilder;
+                var connection = new MySqlConnection(connectionString.ConnectionString);
+
+                string dataString = $"INSERT INTO tickets (Titel, Datum, Text, Autor, ID) VALUES ('{ticket.Title}','{ticket.CreationTime}','{ticket.TicketText}','{ticket.Author}','{ticket.ID}')";
+                MySqlCommand command = new MySqlCommand(dataString, connection);
+
+                connection.Open();
+                var rowsAff = command.ExecuteNonQuery();
+                connection.Close();
+
+                return true;
+            }
+            catch(MySqlException e)
+            {
+                Console.WriteLine("Stacktrace ist : " + e.StackTrace.ToString());
+                Console.WriteLine("Fehlercode ist : " + e.Code);
+                Console.WriteLine("Fehlername ist : " + e.Message);
+                return false;
+            }
+        }
+        #endregion
 
     }
 }

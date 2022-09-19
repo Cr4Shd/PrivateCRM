@@ -130,6 +130,7 @@
     </Compile>
     <Compile Include="DBItems\Client.cs" />
     <Compile Include="DBItems\ProblemCase.cs" />
+    <Compile Include="DBItems\Ticket.cs" />
     <Compile Include="DBUtils\DBConfigs.cs" />
     <Compile Include="DBUtils\DBControler.cs" />
     <Compile Include="DBUtils\DBObjectParser.cs" />
