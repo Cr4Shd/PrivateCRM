@@ -14,6 +14,7 @@ namespace Syntax_Imotion_Lexika.DBItems
         public string TicketText { get; set; }
         public string Author { get; set; }
         public string ID { get; set; }
+        public int Solved { get; set; }
 
         /// <summary>
         /// Leerer Konstruktor für Testweise Erstellung und generelles erstellen
@@ -29,13 +30,14 @@ namespace Syntax_Imotion_Lexika.DBItems
         /// <param name="createTime"></param>
         /// <param name="ticketText"></param>
         /// <param name="author"></param>
-        public Ticket(string title, DateTime createTime, string ticketText, string author, Guid id)
+        public Ticket(string title, DateTime createTime, string ticketText, string author, Guid id, int solved)
         {
-            this.Title= title;
+            this.Title = title;
             this.CreationTime = createTime;
             this.TicketText = ticketText;
             this.Author = author;
             this.ID = ID.ToString();
+            this.Solved = solved;
         }
     }
 }

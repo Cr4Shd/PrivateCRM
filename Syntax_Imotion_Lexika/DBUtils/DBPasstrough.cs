@@ -351,12 +351,6 @@ namespace Syntax_Imotion_Lexika.DBUtils
 
         #region WriteTicketDB
 
-        //public string Title { get; set; }
-        //public DateTime CreationTime { get; set; }
-        //public string TicketText { get; set; }
-        //public string Author { get; set; }
-        //public string ID { get; set; }
-
         /// <summary>
         /// Diese Methode wird verwendet um Tickets in die DB einzupflegen.
         /// </summary>
