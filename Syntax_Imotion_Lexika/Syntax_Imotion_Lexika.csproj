@@ -125,6 +125,9 @@
     <Compile Include="ClientContact.xaml.cs">
       <DependentUpon>ClientContact.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateTicket.xaml.cs">
+      <DependentUpon>CreateTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseTools.xaml.cs">
       <DependentUpon>DatabaseTools.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,9 @@
     </Compile>
     <Compile Include="Search_Problem.xaml.cs">
       <DependentUpon>Search_Problem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowTickets.xaml.cs">
+      <DependentUpon>ShowTickets.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
@@ -184,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CreateTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DatabaseTools.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Search_Problem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowTickets.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

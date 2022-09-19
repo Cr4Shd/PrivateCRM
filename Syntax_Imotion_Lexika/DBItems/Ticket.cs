@@ -17,7 +17,7 @@ namespace Syntax_Imotion_Lexika.DBItems
         public int Solved { get; set; }
 
         /// <summary>
-        /// Leerer Konstruktor für Testweise Erstellung und generelles erstellen
+        /// Leerer Konstruktor für Testweise Erstellung und generelles Erstellen
         /// </summary>
         public Ticket()
         {
@@ -36,7 +36,7 @@ namespace Syntax_Imotion_Lexika.DBItems
             this.CreationTime = createTime;
             this.TicketText = ticketText;
             this.Author = author;
-            this.ID = ID.ToString();
+            this.ID = id.ToString();
             this.Solved = solved;
         }
     }

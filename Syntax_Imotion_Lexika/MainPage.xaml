@@ -13,9 +13,12 @@
         <Button x:Name="Create_Client" Content="Neuer Anruf" Height="100" Margin="113,247,0,0" VerticalAlignment="Top" Width="380" Click="Create_Client_Click"/>
         <Button x:Name="Search_Client"  Content="Client Suchen" Margin="113,393,0,0" VerticalAlignment="Top" Height="100" Width="380" Click="Search_Client_Click"/>
         <Button x:Name="Database" Content="Datenbank" Margin="113,534,0,0" VerticalAlignment="Top" Width="380" Height="100" Click="Database_Click"/>
-        
+
         <Button Content="Test" Margin="934,584,0,0" VerticalAlignment="Top" Height="107" Width="233" Click="Test_Event"/>
         <Button x:Name="Search_Problem" Content="Problem Suchen" Margin="113,670,0,0" Height="100" Width="380" VerticalAlignment="Top" Click="Search_Problem_Click"/>
+        <Button x:Name="Create_Ticket" Content="Ticket anlegen" Margin="113,808,0,0" VerticalAlignment="Top" Height="101" Width="380" Click="Create_Ticket_Click"/>
+        <Button x:Name="Show_Ticket" Content="Show_Tickets" Margin="557,104,0,0" VerticalAlignment="Top" Height="100" Width="323" Click="Show_Ticket_Click"/>
+
 
     </Grid>
 </Page>

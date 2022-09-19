@@ -57,6 +57,16 @@ namespace Syntax_Imotion_Lexika
         {
             Frame.Navigate(typeof(Search_Problem));
         }
+
+        private void Create_Ticket_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CreateTicket));
+        }
+
+        private void Show_Ticket_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ShowTickets));
+        }
         #endregion
     }
 }

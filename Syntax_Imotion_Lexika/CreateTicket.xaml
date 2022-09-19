@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="Syntax_Imotion_Lexika.CreateTicket"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Syntax_Imotion_Lexika"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="Create_Ticket_Btn" Content="Anlegen" Margin="87,829,0,0" VerticalAlignment="Top" Height="81" Width="244" Click="Create_Ticket_Btn_Click"/>
+        <Button x:Name="Main_Menu_Btn"  Content="Hauptmenü" Margin="473,829,0,0" VerticalAlignment="Top" Height="81" Width="203" Click="Main_Menu_Btn_Click"/>
+        <TextBox x:Name="Problem_TextBox" HorizontalAlignment="Left" Height="261" Margin="87,268,0,0" TextWrapping="Wrap" Header="Problem" VerticalAlignment="Top" Width="915"/>
+        <TextBox x:Name="Title_TextBox" HorizontalAlignment="Left" Margin="87,84,0,0" TextWrapping="Wrap" Header="Titel des Tickets" VerticalAlignment="Top" Width="244" Height="62"/>
+        <TextBox x:Name="Autor_TextBox" HorizontalAlignment="Left" Margin="375,84,0,0" TextWrapping="Wrap" Header="Autor/Bearbeiter" VerticalAlignment="Top" Height="62" Width="248"/>
+
+    </Grid>
+</Page>
