@@ -10,7 +10,10 @@ using Windows.Devices.PointOfService;
 
 namespace Syntax_Imotion_Lexika.DBUtils
 {
-
+    /// <summary>
+    /// Das ist die Hauptklasse zum Zugriff und der Bearbeitung der Hauptabellen welche sich auf einer lokalen DB befinden. 
+    /// Alle Mehoden innerhalb der DB sind public, da viele Zugriffe per overclass funktionieren und ich keine Lust habe Methodische GEtter / Setter :Da
+    /// </summary>
     static class DBPasstrough
     {
 
@@ -384,6 +387,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
 
         #endregion
 
+        #region ReadTicketDB
         public static List<DBItems.Ticket> ReadTicketDB()
         {
             List<DBItems.Ticket> ticketlist = new List<DBItems.Ticket>();
@@ -426,6 +430,14 @@ namespace Syntax_Imotion_Lexika.DBUtils
             }
 
         }
+        #endregion
+
+        #region UpdateTicketDB
+        /// <summary>
+        ///  Diese Methode ist dazu gedacht den Status eines Tickets von "offen" auf "erledigt" gesettzt wird.
+        /// </summary>
+        /// <param name="ticket"></param>
+        /// <returns></returns>
         public static bool UpdateTicket(DBItems.Ticket ticket)
         {
             try
@@ -447,6 +459,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 return false;
             }
         }
+        #endregion
 
     }
 }

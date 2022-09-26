@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ListView x:Name ="TicketListView" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="713,0,0,0" Width="600" Height="581"  IsItemClickEnabled="True" >
+        <ListView x:Name ="TicketListView" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="839,0,0,0" Width="600" Height="581"  IsItemClickEnabled="True" ItemClick="TicketListView_ItemClick" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -25,6 +25,6 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button x:Name="Get_Tickets_Btn" Content="Tickets abrufen" Margin="86,822,0,0" VerticalAlignment="Top" Height="90" Width="313" Click="Get_Tickets_Btn_Click"/>
-        <Button Content="Hauptmenü" Margin="456,822,0,0" VerticalAlignment="Top" Click="Button_Click" Height="90" Width="313"/>
+        <Button Content="Hauptmenü" Margin="1095,822,0,0" VerticalAlignment="Top" Click="Button_Click" Height="90" Width="313"/>
     </Grid>
 </Page>

@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="Syntax_Imotion_Lexika.ChangeTicketInformations"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Syntax_Imotion_Lexika"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="Ticket_TextBlock" HorizontalAlignment="Left" Margin="165,222,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="372" Width="1109"/>
+        <TextBlock x:Name="Titel_TextBlock" HorizontalAlignment="Left" Margin="165,65,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="47" Width="272"/>
+        <TextBlock x:Name="Autor_TextBlock" HorizontalAlignment="Left" Margin="481,69,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="47" Width="219"/>
+        <RadioButton Content="Erledigt" Margin="854,770,0,0" VerticalAlignment="Top" Height="36" Width="204"/>
+        <RadioButton Content="Nicht erledigt" Margin="854,814,0,0" VerticalAlignment="Top" Height="40" Width="204"/>
+        <Button Content="Save" Margin="126,791,0,0" VerticalAlignment="Top" Height="63" Width="212"/>
+        <TextBlock x:Name="" HorizontalAlignment="Left" Margin="750,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="328"/>
+
+    </Grid>
+</Page>

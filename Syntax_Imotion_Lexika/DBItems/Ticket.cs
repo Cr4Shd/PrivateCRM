@@ -39,5 +39,15 @@ namespace Syntax_Imotion_Lexika.DBItems
             this.ID = id.ToString();
             this.Solved = solved;
         }
+        /// <summary>
+        /// Dieser CTOR ist dafür gedacht das man objekte testweise instanzieren kann. 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="date"></param>
+        public Ticket(string title, DateTime date)
+        {
+            this.Title= title;
+            this.CreationTime = date;
+        }
     }
 }

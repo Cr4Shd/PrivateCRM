@@ -1,9 +1,11 @@
-﻿using Syntax_Imotion_Lexika.DBUtils;
+﻿using Syntax_Imotion_Lexika.DBItems;
+using Syntax_Imotion_Lexika.DBUtils;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel.Channels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -39,6 +41,24 @@ namespace Syntax_Imotion_Lexika
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private string SetSolvedStatus(Ticket ticket)
+        {
+            if (ticket.Solved == 1)
+            {
+                return "Ja";
+            }
+            else
+            {
+                return "Nein";
+            }
+        }
+
+        private void TicketListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var param = e.ClickedItem as DBItems.Ticket;
+            
         }
     }
 }
