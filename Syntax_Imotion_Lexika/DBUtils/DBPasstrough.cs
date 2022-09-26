@@ -438,13 +438,13 @@ namespace Syntax_Imotion_Lexika.DBUtils
         /// </summary>
         /// <param name="ticket"></param>
         /// <returns></returns>
-        public static bool UpdateTicket(DBItems.Ticket ticket)
+        public static bool UpdateTicket(string par0)
         {
             try
             {
                 var connectionString = DBConfigs.stringBuilder;
                 var connection = new MySqlConnection(connectionString.ConnectionString);
-                string dataString = $"UPDATE tickets SET Solved = 1 WHERE ID == '{ticket.ID}'";
+                string dataString = $"UPDATE tickets SET Solved = 1 WHERE ID ='{par0}'";
                 MySqlCommand command = new MySqlCommand(dataString, connection);
                 connection.Open();
                 var rowsAff = command.ExecuteNonQuery();

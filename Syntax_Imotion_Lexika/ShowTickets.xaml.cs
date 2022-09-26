@@ -58,6 +58,7 @@ namespace Syntax_Imotion_Lexika
         private void TicketListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var param = e.ClickedItem as DBItems.Ticket;
+            Frame.Navigate(typeof (ChangeTicketInformations), param);
             
         }
     }

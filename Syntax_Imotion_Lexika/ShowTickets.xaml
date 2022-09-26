@@ -17,6 +17,7 @@
                         <TextBlock  Text="{Binding CreationTime}" Margin="5,0,0,0" />
                         <!--<TextBlock  Text="{Binding ID}"/>-->
                         <TextBlock  Text="{Binding Solved}" Margin="5,0,0,0"/>
+                        <TextBlock Text="{Binding ID}" Margin="5,0,0,0"/>
 
                         <!--<TextBlock  Text="{Binding Date}" Margin="5,0,0,0" />-->
                         <!--<TextBlock  Text="{Binding Unq_Call_ID}" Margin="5,0,0,0"/>-->
