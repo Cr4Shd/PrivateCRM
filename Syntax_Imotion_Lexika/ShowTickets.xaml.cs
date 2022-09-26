@@ -61,5 +61,21 @@ namespace Syntax_Imotion_Lexika
             Frame.Navigate(typeof (ChangeTicketInformations), param);
             
         }
+
+        private void Unslvd_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            List<DBItems.Ticket> ticketList = new List<DBItems.Ticket>();
+            ticketList = DBPasstrough.ReadTicketDBUnsolved();
+
+            TicketListView.ItemsSource = ticketList;
+        }
+
+        private void Slvd_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            List<DBItems.Ticket> ticketList = new List<DBItems.Ticket>();
+            ticketList = DBPasstrough.ReadTicketDBSolved();
+
+            TicketListView.ItemsSource = ticketList;
+        }
     }
 }

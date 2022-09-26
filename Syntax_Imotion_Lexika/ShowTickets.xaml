@@ -27,5 +27,7 @@
         </ListView>
         <Button x:Name="Get_Tickets_Btn" Content="Tickets abrufen" Margin="86,822,0,0" VerticalAlignment="Top" Height="90" Width="313" Click="Get_Tickets_Btn_Click"/>
         <Button Content="Hauptmenü" Margin="1095,822,0,0" VerticalAlignment="Top" Click="Button_Click" Height="90" Width="313"/>
+        <Button x:Name="Unslvd_Btn" Content="Ungelöste Tickets" Margin="86,705,0,0" VerticalAlignment="Top" Height="86" Width="313" Click="Unslvd_Btn_Click"/>
+        <Button x:Name="Slvd_Btn" Content="Gelöste Tickets" Margin="86,597,0,0" VerticalAlignment="Top" Height="83" Width="313" Click="Slvd_Btn_Click"/>
     </Grid>
 </Page>

@@ -367,7 +367,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 var connectionString = DBConfigs.stringBuilder;
                 var connection = new MySqlConnection(connectionString.ConnectionString);
 
-                string dataString = $"INSERT INTO tickets (Titel, Datum, Text, Autor, ID, Solved, KundenNr) VALUES ('{ticket.Title}','{ticket.CreationTime.ToString("yyyy-MM-dd HH:mm:ss")}','{ticket.TicketText}','{ticket.Author}','{ticket.ID}','{ticket.Solved}', {ticket.ClientID}')";
+                string dataString = $"INSERT INTO tickets (Titel, Datum, Text, Autor, ID, Solved, KundenNr) VALUES ('{ticket.Title}','{ticket.CreationTime.ToString("yyyy-MM-dd HH:mm:ss")}','{ticket.TicketText}','{ticket.Author}','{ticket.ID}','{ticket.Solved}', '{ticket.ClientID}')";
                 MySqlCommand command = new MySqlCommand(dataString, connection);
 
                 connection.Open();
@@ -430,6 +430,112 @@ namespace Syntax_Imotion_Lexika.DBUtils
                 return null;
             }
 
+        }
+        #endregion
+
+        #region ReadTicketDBSolved
+        public static List<DBItems.Ticket> ReadTicketDBSolved()
+        {
+            List<DBItems.Ticket> ticketlist = new List<DBItems.Ticket>();
+            List<DBItems.Ticket> SolvTicketList = new List<DBItems.Ticket>();
+            try
+            {
+                string dataReturn = string.Empty;
+                var connectionString = DBConfigs.stringBuilder;
+                var connection = new MySqlConnection(connectionString.ConnectionString);
+
+                string dataString = "SELECT * FROM tickets;";
+                MySqlCommand command = new MySqlCommand(dataString, connection);
+
+                connection.Open();
+                MySqlDataReader reader;
+                reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
+
+
+                while (reader.Read())
+                {
+                    var title = reader.GetString(0);
+                    DateTime date = reader.GetDateTime(1);
+                    var text = reader.GetString(2);
+                    var autor = reader.GetString(3);
+                    Guid id;
+                    Guid.TryParse(reader.GetString(4), out id);
+                    var solved = reader.GetInt32(5);
+                    var cId = reader.GetString(6);
+
+                    ticketlist.Add(new DBItems.Ticket(title, date, text, autor, id, solved, cId));
+                }
+
+                connection.Close();
+
+                var bufferlist =
+                    from itemX in ticketlist
+                    where itemX.Solved == 1
+                    select itemX;
+                SolvTicketList = bufferlist.ToList();
+
+                return SolvTicketList;
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Stacktrace ist : " + e.StackTrace.ToString());
+                Console.WriteLine("Fehlercode ist : " + e.Code);
+                Console.WriteLine("Fehlername ist : " + e.Message);
+                return null;
+            }
+        }
+        #endregion
+
+        #region ReadTicketDBUnsolved
+        public static List<DBItems.Ticket> ReadTicketDBUnsolved()
+        {
+            List<DBItems.Ticket> ticketlist = new List<DBItems.Ticket>();
+            List<DBItems.Ticket> SolvTicketList = new List<DBItems.Ticket>();
+            try
+            {
+                string dataReturn = string.Empty;
+                var connectionString = DBConfigs.stringBuilder;
+                var connection = new MySqlConnection(connectionString.ConnectionString);
+
+                string dataString = "SELECT * FROM tickets;";
+                MySqlCommand command = new MySqlCommand(dataString, connection);
+
+                connection.Open();
+                MySqlDataReader reader;
+                reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
+
+
+                while (reader.Read())
+                {
+                    var title = reader.GetString(0);
+                    DateTime date = reader.GetDateTime(1);
+                    var text = reader.GetString(2);
+                    var autor = reader.GetString(3);
+                    Guid id;
+                    Guid.TryParse(reader.GetString(4), out id);
+                    var solved = reader.GetInt32(5);
+                    var cId = reader.GetString(6);
+
+                    ticketlist.Add(new DBItems.Ticket(title, date, text, autor, id, solved, cId));
+                }
+
+                connection.Close();
+
+                var bufferlist =
+                    from itemX in ticketlist
+                    where itemX.Solved == 0
+                    select itemX;
+                SolvTicketList = bufferlist.ToList();
+
+                return SolvTicketList;
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("Stacktrace ist : " + e.StackTrace.ToString());
+                Console.WriteLine("Fehlercode ist : " + e.Code);
+                Console.WriteLine("Fehlername ist : " + e.Message);
+                return null;
+            }
         }
         #endregion
 
