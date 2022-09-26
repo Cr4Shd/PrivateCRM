@@ -18,6 +18,7 @@
         <Button x:Name="Search_Problem" Content="Problem Suchen" Margin="113,670,0,0" Height="100" Width="380" VerticalAlignment="Top" Click="Search_Problem_Click"/>
         <Button x:Name="Create_Ticket" Content="Ticket anlegen" Margin="113,808,0,0" VerticalAlignment="Top" Height="101" Width="380" Click="Create_Ticket_Click"/>
         <Button x:Name="Show_Ticket" Content="Tickets anzeigen" Margin="557,104,0,0" VerticalAlignment="Top" Height="100" Width="323" Click="Show_Ticket_Click"/>
+        <TextBlock x:Name="Version_Box" HorizontalAlignment="Left" Margin="1175,890,0,0" TextWrapping="Wrap" Text="{Binding AppVersion}" VerticalAlignment="Top" Height="32" Width="214"/>
 
 
     </Grid>

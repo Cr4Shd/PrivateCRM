@@ -66,7 +66,7 @@ namespace Syntax_Imotion_Lexika
             {
                 return false;
             }
-            if(par0 == 1)
+            if (par0 == 1)
             {
                 return true;
             }

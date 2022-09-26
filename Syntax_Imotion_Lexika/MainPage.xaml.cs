@@ -23,9 +23,12 @@ namespace Syntax_Imotion_Lexika
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public string AppVersion { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
+            AppVersion = GetType().Assembly.GetName().Version.ToString();
+            Version_Box.Text = AppVersion;
         }
 
         #region Buttons
