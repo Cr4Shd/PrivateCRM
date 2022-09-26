@@ -15,7 +15,9 @@
         <RadioButton x:Name="Rd_Btn_Solved" Content="Erledigt" Margin="854,770,0,0" VerticalAlignment="Top" Height="36" Width="204"/>
         <RadioButton x:Name="Rd_Btn_Unsolved" Content="Nicht erledigt" Margin="854,814,0,0" VerticalAlignment="Top" Height="40" Width="204"/>
         <Button x:Name="Save_Btn" Content="Save" Margin="126,791,0,0" VerticalAlignment="Top" Height="63" Width="212" Click="Save_Btn_Click"/>
-        <TextBlock x:Name="Date_TextBlock" HorizontalAlignment="Left" Margin="750,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="50" Width="275"/>
+        <TextBlock x:Name="Date_TextBlock" HorizontalAlignment="Left" Margin="791,65,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="50" Width="275"/>
+        <TextBlock x:Name="Client_ID_TextBlock" HorizontalAlignment="Left" Margin="1109,65,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="45" Width="229"/>
+        <Button x:Name="Return_Btn" Content="Zurück" Margin="420,791,0,0" VerticalAlignment="Top" Height="63" Width="212" Click="Return_Btn_Click"/>
 
     </Grid>
 </Page>

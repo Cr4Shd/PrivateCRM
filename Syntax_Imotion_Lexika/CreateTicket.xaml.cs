@@ -43,8 +43,9 @@ namespace Syntax_Imotion_Lexika
             var title = Title_TextBox.Text;
             var autor = Autor_TextBox.Text;
             var text = Problem_TextBox.Text;
+            var clientId = Client_ID_TextBox.Text;
 
-            DBItems.Ticket ticket = new DBItems.Ticket(title, DateTime.Now, text, autor, Guid.NewGuid(), 0);
+            DBItems.Ticket ticket = new DBItems.Ticket(title, DateTime.Now, text, autor, Guid.NewGuid(), 0, clientId);
             DBPasstrough.WriteTicket(ticket);
 
         }

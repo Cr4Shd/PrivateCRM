@@ -14,6 +14,7 @@
         <TextBox x:Name="Problem_TextBox" HorizontalAlignment="Left" Height="261" Margin="87,268,0,0" TextWrapping="Wrap" Header="Problem" VerticalAlignment="Top" Width="915"/>
         <TextBox x:Name="Title_TextBox" HorizontalAlignment="Left" Margin="87,84,0,0" TextWrapping="Wrap" Header="Titel des Tickets" VerticalAlignment="Top" Width="244" Height="62"/>
         <TextBox x:Name="Autor_TextBox" HorizontalAlignment="Left" Margin="375,84,0,0" TextWrapping="Wrap" Header="Autor/Bearbeiter" VerticalAlignment="Top" Height="62" Width="248"/>
+        <TextBox x:Name="Client_ID_TextBox" HorizontalAlignment="Left" Margin="87,191,0,0" TextWrapping="Wrap" Header="KundenNr" VerticalAlignment="Top" Height="43" Width="244"/>
 
     </Grid>
 </Page>

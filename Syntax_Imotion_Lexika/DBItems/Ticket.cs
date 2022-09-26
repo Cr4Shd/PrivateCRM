@@ -15,6 +15,7 @@ namespace Syntax_Imotion_Lexika.DBItems
         public string Author { get; set; }
         public string ID { get; set; }
         public int Solved { get; set; }
+        public string ClientID { get; set; }
 
         /// <summary>
         /// Leerer Konstruktor für Testweise Erstellung und generelles Erstellen
@@ -30,7 +31,7 @@ namespace Syntax_Imotion_Lexika.DBItems
         /// <param name="createTime"></param>
         /// <param name="ticketText"></param>
         /// <param name="author"></param>
-        public Ticket(string title, DateTime createTime, string ticketText, string author, Guid id, int solved)
+        public Ticket(string title, DateTime createTime, string ticketText, string author, Guid id, int solved, string clientID)
         {
             this.Title = title;
             this.CreationTime = createTime;
@@ -38,6 +39,7 @@ namespace Syntax_Imotion_Lexika.DBItems
             this.Author = author;
             this.ID = id.ToString();
             this.Solved = solved;
+            ClientID = clientID;
         }
         /// <summary>
         /// Dieser CTOR ist dafür gedacht das man objekte testweise instanzieren kann. 

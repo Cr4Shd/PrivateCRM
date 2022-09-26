@@ -36,6 +36,7 @@ namespace Syntax_Imotion_Lexika
             Ticket_TextBlock.Text = parameter.TicketText;
             Titel_TextBlock.Text = parameter.Title;
             Autor_TextBlock.Text = parameter.Author;
+            Client_ID_TextBlock.Text = parameter.ClientID;
             bool solv = CheckSolvedStatus(parameter.Solved);
             ActualTicketId = parameter.ID;
 
@@ -70,6 +71,11 @@ namespace Syntax_Imotion_Lexika
                 return true;
             }
             return false;
+        }
+
+        private void Return_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ShowTickets));
         }
     }
 }
