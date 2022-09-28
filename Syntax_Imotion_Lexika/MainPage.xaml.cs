@@ -53,7 +53,7 @@ namespace Syntax_Imotion_Lexika
         }
         private void Test_Event(object sedner, RoutedEventArgs e)
         {
-            
+            Frame.Navigate(typeof(DB_ConfigParameters));
         }
 
         private void Search_Problem_Click(object sender, RoutedEventArgs e)

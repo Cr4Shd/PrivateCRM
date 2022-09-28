@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="Syntax_Imotion_Lexika.DB_ConfigParameters"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Syntax_Imotion_Lexika"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="738">
+
+    <Grid Margin="0,0,10,0">
+        <TextBox x:Name="TxBx_Srv" HorizontalAlignment="Left" Margin="60,100,0,0" TextWrapping="Wrap" Header="Server" Text="{Binding Server}" VerticalAlignment="Top" Height="60" Width="260"/>
+        <TextBox x:Name="TxBx_DB" HorizontalAlignment="Left" Margin="60,190,0,0" TextWrapping="Wrap" Header="DB" Text="{Binding DataBase}" VerticalAlignment="Top" Height="60" Width="260"/>
+        <TextBox x:Name="TxBx_UID" HorizontalAlignment="Left" Margin="60,280,0,0" TextWrapping="Wrap" Header="UserID" Text="{Binding UserID}" VerticalAlignment="Top" Height="60" Width="260"/>
+        <TextBox x:Name="TxBx_PW" HorizontalAlignment="Left" Margin="60,370,0,0" TextWrapping="Wrap" Header="Password" Text="{Binding Password}" VerticalAlignment="Top" Height="60" Width="260"/>
+        <TextBox x:Name="TxBx_ConTO" HorizontalAlignment="Left" Margin="60,460,0,0" TextWrapping="Wrap" Header="TimeOut" Text="{Binding ConnTimeOut}" VerticalAlignment="Top" Height="60" Width="260"/>
+        <TextBox x:Name="TxBX_Port" HorizontalAlignment="Left" Margin="60,550,0,0" TextWrapping="Wrap" Header="Port" Text="{Binding Port}" VerticalAlignment="Top" Height="60" Width="260"/>
+        <Button  x:Name="Btn_GetParam" Content="Get_Param" Margin="60,820,0,0" VerticalAlignment="Top" Height="60" Width="260" Click="Btn_GetParam_Click"/>
+    </Grid>
+</Page>

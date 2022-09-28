@@ -9,6 +9,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
 {
     static class DBConfigs
     {
+        
         public static MySqlBaseConnectionStringBuilder stringBuilder = new MySqlConnectionStringBuilder
         {
             Server = "127.0.0.1",

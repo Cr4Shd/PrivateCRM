@@ -12,7 +12,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
 {
     /// <summary>
     /// Das ist die Hauptklasse zum Zugriff und der Bearbeitung der Hauptabellen welche sich auf einer lokalen DB befinden. 
-    /// Alle Mehoden innerhalb der DB sind public, da viele Zugriffe per overclass funktionieren und ich keine Lust habe Methodische GEtter / Setter :Da
+    /// Alle Mehoden innerhalb der DB sind public, da viele Zugriffe per overclass funktionieren und ich keine Lust habe Methodische GEtter / Setter :D
     /// </summary>
     static class DBPasstrough
     {
