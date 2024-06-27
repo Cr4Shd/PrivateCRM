@@ -12,7 +12,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
 {
     /// <summary>
     /// Das ist die Hauptklasse zum Zugriff und der Bearbeitung der Hauptabellen welche sich auf einer lokalen DB befinden. 
-    /// Alle Mehoden innerhalb der DB sind public, da viele Zugriffe per overclass funktionieren und ich keine Lust habe Methodische GEtter / Setter :D
+    
     /// </summary>
     static class DBPasstrough
     {
@@ -241,7 +241,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
         #endregion // Funktion ist noch WIP
 
         #region ReadProblemDB
-        // Diese Funktion soll eine Liste aller Probleme ausgeben, nach welcher mit einem bestimmten String gesucht wird. Ich denke dafür kann ich am besten RegEx benutzen.
+        
         public static DBItems.ProblemCase ReadProblemsDB(string prob)
         {
             DBObjectParser parser = new DBObjectParser();
