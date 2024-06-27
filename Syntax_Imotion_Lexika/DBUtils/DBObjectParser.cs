@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Syntax_Imotion_Lexika.DBUtils
 {
-    // Der Plan ist das ich Anfrage-Parameter angeben kann, diese Klasse dann überprüft um was es sich genau handelt und dementsprechend den Typ für die Suche bereitstellt.
-    // Am ende soll innerhalb des Client suchen Felder ein kleiner  Kalender stehen welche 
+    
     class DBObjectParser
     {
         public object Parameter { get; set; }
