@@ -37,8 +37,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
             //}
             return null;
         }
-        // Ich brauche nun noch einen Indikator für die anrufende Methode ob es sich um eine ID oder einen Namen handelt.
-        // Die Aufr. Methode muss auswerten 
+        
         public Tuple<int, object> CheckValueString(string value)
         {
             if (value.StartsWith("3") || value.StartsWith("2"))
