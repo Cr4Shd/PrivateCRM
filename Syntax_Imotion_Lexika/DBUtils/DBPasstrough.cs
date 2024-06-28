@@ -104,7 +104,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
 
                 connection.Open();
                 MySqlDataReader reader;
-                reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
+                reader = command.ExecuteReader(); 
 
 
                 while (reader.Read())
@@ -192,7 +192,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
 
             connection.Open();
             MySqlDataReader reader;
-            reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
+            reader = command.ExecuteReader();
 
             while (reader.Read())
             {
@@ -258,7 +258,7 @@ namespace Syntax_Imotion_Lexika.DBUtils
 
                 connection.Open();
                 MySqlDataReader reader;
-                reader = command.ExecuteReader(); // Die Connection scheint zu stehen - jedoch ist die Syntax für die Anfrage falsch :D 
+                reader = command.ExecuteReader(); 
 
 
                 while (reader.Read())
