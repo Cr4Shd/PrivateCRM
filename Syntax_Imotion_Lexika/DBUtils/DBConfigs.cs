@@ -13,11 +13,11 @@ namespace Syntax_Imotion_Lexika.DBUtils
         public static MySqlBaseConnectionStringBuilder stringBuilder = new MySqlConnectionStringBuilder
         {
             Server = "127.0.0.1",
-            Database = "imkontakte",
-            UserID = "rootMat",
-            Password = "synopsis",
+            Database = "************",
+            UserID = "************",
+            Password = "************",
             ConnectionTimeout = 10,
-            Port = 3306,
+            Port = *****,
             Pooling = false
         };
     }
